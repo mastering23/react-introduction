@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>React</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        text-align: center;
+        padding: 20px;
+        background-color: #4CAF50;
+        color: white;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #333;
+      }
+      nav a {
+        padding: 14px 20px;
+        text-decoration: none;
+        color: white;
+      }
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      main {
+        display: flex;
+        margin: 20px;
+      }
+      aside {
+        width: 20%;
+        background-color: #f4f4f4;
+        padding: 10px;
+      }
+      section {
+        flex-grow: 1;
+        padding: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const App = () => {
+        const [counter, setCounter] = React.useState(0);
+
+        const increaseCounter = () => {
+          setCounter(counter + 1);
+        };
+
+        return (
+          <>
+            <header>
+              <h1>React Page Layout</h1>
+            </header>
+
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Services</a>
+              <a href="#">Contact</a>
+            </nav>
+
+            <main>
+              <aside>
+                <h3>Aside Menu</h3>
+                <p>The counter is at: {counter}</p>
+                <button onClick={increaseCounter}>Increase Counter</button>
+                <ul>
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                </ul>
+              </aside>
+
+              <section>
+                <h2>Section Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet diam vel orci laoreet consequat. Ut facilisis est vel augue vulputate viverra. Cras venenatis nunc at lectus tincidunt, eget malesuada justo mollis.</p>
+                <p>Vivamus luctus elit at diam ultricies posuere. Suspendisse potenti. Curabitur id justo in metus fermentum gravida non id felis. Mauris vehicula libero in sapien dictum, vel euismod erat bibendum.</p>
+                <p>Pellentesque non dui sit amet dui varius pharetra. Vestibulum at tellus ut neque tincidunt aliquet. Ut faucibus orci id tellus vehicula, quis sodales metus luctus.</p>
+              </section>
+            </main>
+
+            <footer>
+              <p>© 2025 React Page Footer. All Rights Reserved.</p>
+            </footer>
+          </>
+        );
+      };
+
+      const container = document.querySelector('#root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>
